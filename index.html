@@ -4,37 +4,86 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elegant store</title>
-    <link rel="stylesheet" href="./css/main.css" />
+    <title>HeadPH — Premium Headphones & Earbuds Store</title>
+    <meta
+      name="description"
+      content="Discover premium wireless headphones, earbuds and audio accessories at HeadPH. Experience high fidelity sound with active noise canceling and fast delivery."
+    />
+    <meta name="theme-color" content="#141718" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+
+    <!-- Google Fonts preconnect & async load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Space+Grotesk:wght@500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Space+Grotesk:wght@500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Space+Grotesk:wght@500&display=swap"
+      />
+    </noscript>
+
+    <!-- Preload LCP hero image -->
+    <link
+      rel="preload"
+      as="image"
+      href="./img/hero/hero-mobile.webp"
+      media="(max-width: 768px)"
+      fetchpriority="high"
+      type="image/webp"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./img/hero/hero-desktop.webp"
+      media="(min-width: 769px)"
+      fetchpriority="high"
+      type="image/webp"
+    />
+
+    <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
     <div class="tagline">
       <img
         class="tagline__icon"
         src="./img/icons/ticket-percent.svg"
-        alt="Icon"
+        alt="Discount"
+        width="24"
+        height="24"
       />
       <div class="tagline__desc">30% off storewide — Limited time!</div>
       <a href="#!" class="tagline__link"> Shop Now </a>
 
-      <button class="tagline__close">
-        <img src="./img/icons/close.svg" alt="Close" />
+      <button class="tagline__close" type="button" aria-label="Close promotion banner">
+        <img src="./img/icons/close.svg" alt="Close" width="16" height="16" />
       </button>
     </div>
     <nav class="nav">
       <div class="container">
         <div class="nav__row">
-          <a href="" class="nav__logo logo"> HeadPH<span>.</span></a>
+          <a href="#" class="nav__logo logo" aria-label="HeadPH Home"> HeadPH<span>.</span></a>
 
-          <ul class="nav__list">
+          <ul class="nav__list nav__list--desktop">
             <li class="nav__item">
               <a href="#!" class="nav__link">Home</a>
             </li>
             <li class="nav__item">
-              <button href="#!" class="nav__link">Shop</button>
+              <a href="#!" class="nav__link">Shop</a>
             </li>
             <li class="nav__item">
-              <button href="#!" class="nav__link">Product</button>
+              <a href="#!" class="nav__link">Product</a>
             </li>
             <li class="nav__item">
               <a href="#!" class="nav__link">Contact Us</a>
@@ -42,25 +91,38 @@
           </ul>
 
           <div class="nav__btns">
-            <button class="nav__btn">
-              <img src="./img/icons/search.svg" alt="Search" />
+            <button class="nav__btn nav__btn--search" type="button" aria-label="Search">
+              <img src="./img/icons/search.svg" alt="Search" width="24" height="24" />
             </button>
-            <button class="nav__btn">
-              <img src="./img/icons/user.svg" alt="User" />
+            <button class="nav__btn nav__btn--user" type="button" aria-label="Account">
+              <img src="./img/icons/user.svg" alt="User" width="24" height="24" />
             </button>
-            <button class="nav__btn">
-              <img src="./img/icons/cart.svg" alt="Cart" />
+            <button class="nav__btn nav__btn--cart" type="button" aria-label="Cart (2 items)">
+              <img src="./img/icons/cart.svg" alt="Cart" width="24" height="24" />
               <span class="nav__btn-count">2</span>
+            </button>
+            <button class="mobile-nav-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+              <span class="nav-icon"></span>
             </button>
           </div>
         </div>
       </div>
     </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <ul class="mobile-nav__list">
+        <li><a href="#!" class="active">Home</a></li>
+        <li><a href="#!">Shop</a></li>
+        <li><a href="#!">Product</a></li>
+        <li><a href="#!">Contact Us</a></li>
+        <li><a href="#!">My Account</a></li>
+      </ul>
+    </div>
     <section class="hero">
       <div class="hero__container">
         <div class="hero__content">
           <h1 class="hero__title">
-            Listen to<br />the <span>amazing</span> music sound.
+            Listen to<br />the <span>amazing</span><br />music sound.
           </h1>
 
           <div class="hero__desc">
@@ -95,13 +157,11 @@
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/01.jpg"
-                      srcset="./img/arrivals/01@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/01.webp" srcset="./img/arrivals/01.webp 1x, ./img/arrivals/01@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -127,31 +187,29 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">
                       Skullcandy - Crusher anc 2 wireless headphones
                     </div>
                     <div class="card__price">$299.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Skullcandy - Crusher anc 2 wireless headphones"></a>
                 </article>
               </div>
               <div class="swiper-slide">
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/02.jpg"
-                      srcset="./img/arrivals/02@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/02.webp" srcset="./img/arrivals/02.webp 1x, ./img/arrivals/02@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -177,28 +235,26 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">Beats Studio Pro</div>
                     <div class="card__price">$349.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Beats Studio Pro"></a>
                 </article>
               </div>
               <div class="swiper-slide">
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/03.jpg"
-                      srcset="./img/arrivals/03@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/03.webp" srcset="./img/arrivals/03.webp 1x, ./img/arrivals/03@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -224,29 +280,27 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">
                       Sony - WH-CH720N Wireless Noise Canceling
                     </div>
                     <div class="card__price">$149.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Sony - WH-CH720N Wireless Noise Canceling"></a>
                 </article>
               </div>
               <div class="swiper-slide">
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/04.jpg"
-                      srcset="./img/arrivals/04@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/04.webp" srcset="./img/arrivals/04.webp 1x, ./img/arrivals/04@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -272,28 +326,26 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">
                       Skullcandy - Rail True Wireless Earbuds
                     </div>
                     <div class="card__price">$79.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Skullcandy - Rail True Wireless Earbuds"></a>
                 </article>
               </div>
               <div class="swiper-slide">
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/05.jpg"
-                      srcset="./img/arrivals/05@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/05.webp" srcset="./img/arrivals/05.webp 1x, ./img/arrivals/05@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -319,25 +371,23 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">Beats Studio Pro</div>
                     <div class="card__price">$224.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Beats Studio Pro"></a>
                 </article>
               </div>
               <div class="swiper-slide">
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/01.jpg"
-                      srcset="./img/arrivals/01@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/01.webp" srcset="./img/arrivals/01.webp 1x, ./img/arrivals/01@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -363,31 +413,29 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">
                       Skullcandy - Crusher anc 2 wireless headphones
                     </div>
                     <div class="card__price">$299.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Skullcandy - Crusher anc 2 wireless headphones"></a>
                 </article>
               </div>
               <div class="swiper-slide">
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/02.jpg"
-                      srcset="./img/arrivals/02@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/02.webp" srcset="./img/arrivals/02.webp 1x, ./img/arrivals/02@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -413,28 +461,26 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">Beats Studio Pro</div>
                     <div class="card__price">$349.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Beats Studio Pro"></a>
                 </article>
               </div>
               <div class="swiper-slide">
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/03.jpg"
-                      srcset="./img/arrivals/03@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/03.webp" srcset="./img/arrivals/03.webp 1x, ./img/arrivals/03@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -460,29 +506,27 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">
                       Sony - WH-CH720N Wireless Noise Canceling
                     </div>
                     <div class="card__price">$149.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Sony - WH-CH720N Wireless Noise Canceling"></a>
                 </article>
               </div>
               <div class="swiper-slide">
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/04.jpg"
-                      srcset="./img/arrivals/04@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/04.webp" srcset="./img/arrivals/04.webp 1x, ./img/arrivals/04@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -508,28 +552,26 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">
                       Skullcandy - Rail True Wireless Earbuds
                     </div>
                     <div class="card__price">$79.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Skullcandy - Rail True Wireless Earbuds"></a>
                 </article>
               </div>
               <div class="swiper-slide">
                 <article class="card">
                   <div class="card__picture">
                     <img
-                      src="./img/arrivals/05.jpg"
-                      srcset="./img/arrivals/05@2x.jpg 2x"
-                      alt="Headphones"
+                      src="./img/arrivals/05.webp" srcset="./img/arrivals/05.webp 1x, ./img/arrivals/05@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
                     />
                     <div class="card__new">new</div>
                     <div class="card__fav">
-                      <button class="btn-fav">
+                      <button class="btn-fav" type="button" aria-label="Add to wishlist">
                         <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                         <svg
                           class="btn-fav__svg"
@@ -555,12 +597,12 @@
                   </div>
                   <div class="card__desc">
                     <div class="card__rating">
-                      <img src="./img/icons/star.svg" alt="Star" />
+                      <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
                     </div>
                     <div class="card__title">Beats Studio Pro</div>
                     <div class="card__price">$224.99</div>
                   </div>
-                  <a href="#!" class="card__link"></a>
+                  <a href="#!" class="card__link" aria-label="View details for Beats Studio Pro"></a>
                 </article>
               </div>
             </div>
@@ -580,7 +622,7 @@
               <h3 class="plate__title">Headband</h3>
               <a href="#!" class="plate__link">
                 Collection
-                <img src="./img/icons/arrow-right-black.svg" alt="Arrow" />
+                <img src="./img/icons/arrow-right-black.svg" alt="" width="20" height="20" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -589,7 +631,7 @@
               <h3 class="plate__title">Earbuds</h3>
               <a href="#!" class="plate__link">
                 Collection
-                <img src="./img/icons/arrow-right-black.svg" alt="Arrow" />
+                <img src="./img/icons/arrow-right-black.svg" alt="" width="20" height="20" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -598,7 +640,7 @@
               <h3 class="plate__title">Accessories</h3>
               <a href="#!" class="plate__link">
                 Collection
-                <img src="./img/icons/arrow-right-black.svg" alt="Arrow" />
+                <img src="./img/icons/arrow-right-black.svg" alt="" width="20" height="20" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -614,13 +656,11 @@
           <article class="card">
             <div class="card__picture">
               <img
-                src="./img/bestseller/01.jpg"
-                srcset="./img/bestseller/01@2x.jpg 2x"
-                alt="Headphones"
+                src="./img/bestseller/01.webp" srcset="./img/bestseller/01.webp 1x, ./img/bestseller/01@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
               />
               <div class="card__new">new</div>
               <div class="card__fav">
-                <button class="btn-fav">
+                <button class="btn-fav" type="button" aria-label="Add to wishlist">
                   <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                   <svg
                     class="btn-fav__svg"
@@ -644,33 +684,31 @@
             </div>
             <div class="card__desc">
               <div class="card__rating">
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
               </div>
               <h3 class="card__title">
                 Skullcandy - Crusher anc 2 wireless headphones
               </h3>
               <div class="card__price">$299.99</div>
             </div>
-            <a href="#!" class="card__link"></a>
+            <a href="#!" class="card__link" aria-label="View details for Skullcandy - Crusher anc 2 wireless headphones"></a>
           </article>
           <article class="card">
             <div class="card__picture">
               <img
-                src="./img/bestseller/02.jpg"
-                srcset="./img/bestseller/02@2x.jpg 2x"
-                alt="Headphones"
+                src="./img/bestseller/02.webp" srcset="./img/bestseller/02.webp 1x, ./img/bestseller/02@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
               />
               <div class="card__new">new</div>
               <div class="card__fav">
-                <button class="btn-fav">
+                <button class="btn-fav" type="button" aria-label="Add to wishlist">
                   <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                   <svg
                     class="btn-fav__svg"
@@ -694,29 +732,27 @@
             </div>
             <div class="card__desc">
               <div class="card__rating">
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
               </div>
               <h3 class="card__title">Beats Studio Pro</h3>
               <div class="card__price">$349.99</div>
             </div>
-            <a href="#!" class="card__link"></a>
+            <a href="#!" class="card__link" aria-label="View details for Beats Studio Pro"></a>
           </article>
           <article class="card">
             <div class="card__picture">
               <img
-                src="./img/bestseller/03.jpg"
-                srcset="./img/bestseller/03@2x.jpg 2x"
-                alt="Headphones"
+                src="./img/bestseller/03.webp" srcset="./img/bestseller/03.webp 1x, ./img/bestseller/03@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
               />
               <div class="card__new">new</div>
               <div class="card__fav">
-                <button class="btn-fav">
+                <button class="btn-fav" type="button" aria-label="Add to wishlist">
                   <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                   <svg
                     class="btn-fav__svg"
@@ -740,29 +776,27 @@
             </div>
             <div class="card__desc">
               <div class="card__rating">
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
               </div>
               <h3 class="card__title">
                 Sony - WH-CH720N Wireless Noise Canceling
               </h3>
               <div class="card__price">$149.99</div>
             </div>
-            <a href="#!" class="card__link"></a>
+            <a href="#!" class="card__link" aria-label="View details for Sony - WH-CH720N Wireless Noise Canceling"></a>
           </article>
           <article class="card">
             <div class="card__picture">
               <img
-                src="./img/bestseller/04.jpg"
-                srcset="./img/bestseller/04@2x.jpg 2x"
-                alt="Headphones"
+                src="./img/bestseller/04.webp" srcset="./img/bestseller/04.webp 1x, ./img/bestseller/04@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
               />
               <div class="card__new">new</div>
               <div class="card__fav">
-                <button class="btn-fav">
+                <button class="btn-fav" type="button" aria-label="Add to wishlist">
                   <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                   <svg
                     class="btn-fav__svg"
@@ -786,33 +820,31 @@
             </div>
             <div class="card__desc">
               <div class="card__rating">
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
               </div>
               <h3 class="card__title">
                 Skullcandy - Rail True Wireless Earbuds
               </h3>
               <div class="card__price">$79.99</div>
             </div>
-            <a href="#!" class="card__link"></a>
+            <a href="#!" class="card__link" aria-label="View details for Skullcandy - Rail True Wireless Earbuds"></a>
           </article>
           <article class="card">
             <div class="card__picture">
               <img
-                src="./img/bestseller/05.jpg"
-                srcset="./img/bestseller/05@2x.jpg 2x"
-                alt="Headphones"
+                src="./img/bestseller/05.webp" srcset="./img/bestseller/05.webp 1x, ./img/bestseller/05@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
               />
               <div class="card__new">new</div>
               <div class="card__fav">
-                <button class="btn-fav">
+                <button class="btn-fav" type="button" aria-label="Add to wishlist">
                   <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                   <svg
                     class="btn-fav__svg"
@@ -836,29 +868,27 @@
             </div>
             <div class="card__desc">
               <div class="card__rating">
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
               </div>
               <h3 class="card__title">Beats Studio Pro</h3>
               <div class="card__price">$224.99</div>
             </div>
-            <a href="#!" class="card__link"></a>
+            <a href="#!" class="card__link" aria-label="View details for Beats Studio Pro"></a>
           </article>
           <article class="card">
             <div class="card__picture">
               <img
-                src="./img/bestseller/06.jpg"
-                srcset="./img/bestseller/06@2x.jpg 2x"
-                alt="Headphones"
+                src="./img/bestseller/06.webp" srcset="./img/bestseller/06.webp 1x, ./img/bestseller/06@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
               />
               <div class="card__new">new</div>
               <div class="card__fav">
-                <button class="btn-fav">
+                <button class="btn-fav" type="button" aria-label="Add to wishlist">
                   <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                   <svg
                     class="btn-fav__svg"
@@ -882,33 +912,31 @@
             </div>
             <div class="card__desc">
               <div class="card__rating">
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
               </div>
               <h3 class="card__title">
                 JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports
               </h3>
               <div class="card__price">$179.95</div>
             </div>
-            <a href="#!" class="card__link"></a>
+            <a href="#!" class="card__link" aria-label="View details for JBL Reflect Flow Pro+ Bluetooth Truly Wireless Sports"></a>
           </article>
           <article class="card">
             <div class="card__picture">
               <img
-                src="./img/bestseller/07.jpg"
-                srcset="./img/bestseller/07@2x.jpg 2x"
-                alt="Headphones"
+                src="./img/bestseller/07.webp" srcset="./img/bestseller/07.webp 1x, ./img/bestseller/07@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
               />
               <div class="card__new">new</div>
               <div class="card__fav">
-                <button class="btn-fav">
+                <button class="btn-fav" type="button" aria-label="Add to wishlist">
                   <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                   <svg
                     class="btn-fav__svg"
@@ -932,29 +960,27 @@
             </div>
             <div class="card__desc">
               <div class="card__rating">
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
               </div>
               <h3 class="card__title">Bose QuietComfort Headphones</h3>
               <div class="card__price">$349.00</div>
             </div>
-            <a href="#!" class="card__link"></a>
+            <a href="#!" class="card__link" aria-label="View details for Bose QuietComfort Headphones"></a>
           </article>
           <article class="card">
             <div class="card__picture">
               <img
-                src="./img/bestseller/08.jpg"
-                srcset="./img/bestseller/08@2x.jpg 2x"
-                alt="Headphones"
+                src="./img/bestseller/08.webp" srcset="./img/bestseller/08.webp 1x, ./img/bestseller/08@2x.webp 2x" alt="Headphones" width="262" height="349" loading="lazy"
               />
               <div class="card__new">new</div>
               <div class="card__fav">
-                <button class="btn-fav">
+                <button class="btn-fav" type="button" aria-label="Add to wishlist">
                   <!-- <img src="./img/icons/fav.svg" alt="Fav"> -->
                   <svg
                     class="btn-fav__svg"
@@ -978,16 +1004,16 @@
             </div>
             <div class="card__desc">
               <div class="card__rating">
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
 
-                <img src="./img/icons/star.svg" alt="Star" />
+                <img src="./img/icons/star.svg" alt="" width="16" height="16" aria-hidden="true" />
               </div>
               <h3 class="card__title">AKG Y600NC Wireless</h3>
               <div class="card__price">$349.99</div>
             </div>
-            <a href="#!" class="card__link"></a>
+            <a href="#!" class="card__link" aria-label="View details for AKG Y600NC Wireless"></a>
           </article>
         </div>
       </div>
@@ -1035,23 +1061,23 @@
       <div class="container">
         <div class="values__grid">
           <div class="value">
-            <img class="value__img" src="./img/values/shipping.svg" alt="" />
-            <h4 class="value__title">Free Shipping</h4>
+            <img class="value__img" src="./img/values/shipping.svg" alt="Shipping" width="48" height="48" loading="lazy" />
+            <h3 class="value__title">Free Shipping</h3>
             <p class="value__desc">Order above $200</p>
           </div>
           <div class="value">
-            <img class="value__img" src="./img/values/finance.svg" alt="" />
-            <h4 class="value__title">Money-back</h4>
+            <img class="value__img" src="./img/values/finance.svg" alt="Finance" width="48" height="48" loading="lazy" />
+            <h3 class="value__title">Money-back</h3>
             <p class="value__desc">30 days guarantee</p>
           </div>
           <div class="value">
-            <img class="value__img" src="./img/values/lock.svg" alt="" />
-            <h4 class="value__title">Secure Payments</h4>
+            <img class="value__img" src="./img/values/lock.svg" alt="Lock" width="48" height="48" loading="lazy" />
+            <h3 class="value__title">Secure Payments</h3>
             <p class="value__desc">Secured by Stripe</p>
           </div>
           <div class="value">
-            <img class="value__img" src="./img/values/call.svg" alt="" />
-            <h4 class="value__title">24/7 Support</h4>
+            <img class="value__img" src="./img/values/call.svg" alt="Support" width="48" height="48" loading="lazy" />
+            <h3 class="value__title">24/7 Support</h3>
             <p class="value__desc">Phone and Email support</p>
           </div>
         </div>
@@ -1066,12 +1092,8 @@
         </p>
 
         <form action="" class="form-newsletter">
-          <img src="./img/icons/email.svg" alt="Email" />
-          <input
-            type="text"
-            class="form-newsletter__input"
-            placeholder="Email address"
-          />
+          <img src="./img/icons/email.svg" alt="Email" width="24" height="24" loading="lazy" />
+          <input type="email" class="form-newsletter__input" placeholder="Email address" aria-label="Email address" required />
           <button type="submit" class="form-newsletter__submit">Signup</button>
         </form>
       </div>
@@ -1102,20 +1124,20 @@
           </div>
 
           <div class="footer__socials">
-            <a href="#!"
-              ><img src="./img/socials/instagram.svg" alt="Social"
-            /></a>
-            <a href="#!"
-              ><img src="./img/socials/facebook.svg" alt="Social"
-            /></a>
-            <a href="#!"
-              ><img src="./img/socials/youtube.svg" alt="Social"
-            /></a>
+            <a href="#!" aria-label="Visit our Instagram page">
+              <img src="./img/socials/instagram.svg" alt="Instagram" width="24" height="24" loading="lazy" />
+            </a>
+            <a href="#!" aria-label="Visit our Facebook page">
+              <img src="./img/socials/facebook.svg" alt="Facebook" width="24" height="24" loading="lazy" />
+            </a>
+            <a href="#!" aria-label="Visit our YouTube channel">
+              <img src="./img/socials/youtube.svg" alt="YouTube" width="24" height="24" loading="lazy" />
+            </a>
           </div>
         </div>
       </div>
     </footer>
 
-    <script src="./js/index.bundle.js"></script>
+    <script src="./js/index.bundle.js" defer></script>
   </body>
 </html>
