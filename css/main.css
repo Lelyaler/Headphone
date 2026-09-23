@@ -769,15 +769,23 @@ a.logo {
   align-items: center;
   gap: 5px;
 }
+.nav__btn--cart {
+  width: auto;
+  min-width: 40px;
+  min-height: 40px;
+}
 
 .nav__btn-count {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
+  flex-shrink: 0;
   border-radius: 50%;
   background-color: #141718;
   font-size: 12px;
-  line-height: 20px;
+  line-height: 1;
   font-weight: 700;
   color: var(--yellow);
   text-align: center;
@@ -1574,6 +1582,11 @@ a.logo {
   height: 40px;
   justify-content: center;
 }
+.nav__btn--cart {
+  width: auto;
+  min-width: 40px;
+  padding: 0 4px;
+}
 .mobile-nav-btn {
   width: 44px;
   height: 44px;
@@ -1750,6 +1763,10 @@ html, body {
     justify-content: center !important;
     padding: 0 !important;
     background: transparent !important;
+  }
+  .nav__btn--cart {
+    width: auto !important;
+    min-width: 40px !important;
   }
   .mobile-nav-btn {
     display: inline-flex !important;
