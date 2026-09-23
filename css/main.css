@@ -218,8 +218,14 @@ body {
 }
 
 .arrivals__slider {
-  display: flex;
-  gap: 24px;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.arrivals .swiper {
+  width: 100%;
+  overflow: hidden;
 }
 
 .bestseller {
