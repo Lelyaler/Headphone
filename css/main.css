@@ -528,6 +528,8 @@ body {
 
 .hero {
   min-height: 820px;
+  display: flex;
+  align-items: center;
   background-color: #141718;
   background-image: url("./../img/hero/hero-desktop.webp");
   background-position: center center;
@@ -543,13 +545,13 @@ body {
   .hero {
     min-height: 520px;
     height: auto;
-    padding: 60px 0;
+    padding: 80px 0 60px;
     background-image: url("./../img/hero/hero-mobile.webp");
   }
 }
 
 .hero__container {
-  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   padding-left: calc(
@@ -734,7 +736,7 @@ a.logo {
 
 .nav {
   padding: 16px 0;
-  background-color: #5533ea;
+  background-color: rgb(111 70 255 / 40%);
 }
 
 .nav__row {
